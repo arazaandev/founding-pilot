@@ -1,0 +1,1 @@
+import{test,expect}from"@playwright/test";test("visitor can begin the founding-pilot application",async({page})=>{await page.goto("/");await page.getByRole("link",{name:"Apply for the founding pilot"}).first().click();await expect(page).toHaveURL(/apply/);await expect(page.getByRole("heading",{name:/Tell us how/})).toBeVisible()});

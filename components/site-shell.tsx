@@ -1,0 +1,3 @@
+import Link from "next/link";import {siteConfig} from "@/lib/config";
+export function Nav(){return <nav className="nav"><div className="container navin"><Link className="brand" href="/">{siteConfig.logoText}</Link><Link href="/#how">How it works</Link><Link href="/sample-opportunity">Sample opportunity</Link><Link href="/#pilot">Founding pilot</Link><Link className="button" href="/apply">Apply</Link></div></nav>}
+export function Footer(){return <footer className="footer"><div className="container">© {new Date().getFullYear()} {siteConfig.name} · <Link href="/privacy">Privacy</Link> · <a href={`mailto:${siteConfig.email}`}>Contact</a><br/>Fictional company names are used in demonstration examples.</div></footer>}

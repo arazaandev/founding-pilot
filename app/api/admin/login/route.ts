@@ -1,0 +1,2 @@
+import{NextResponse}from"next/server";import{ADMIN_COOKIE,adminSessionValue,validAdminPassword}from"@/lib/admin-auth";
+export async function POST(req:Request){const{password}=await req.json();if(!validAdminPassword(password))return NextResponse.json({error:"Unauthorized"},{status:401});const r=NextResponse.json({ok:true});r.cookies.set(ADMIN_COOKIE,adminSessionValue(),{httpOnly:true,secure:process.env.NODE_ENV==="production",sameSite:"strict",maxAge:60*60*8,path:"/"});return r}
