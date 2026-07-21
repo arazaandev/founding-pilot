@@ -54,7 +54,7 @@ export default function Apply() {
   }
 
   return <><Nav/><main><section><div className="container form">
-    <div className="eyebrow">LANCARA founding pilot application</div>
+    <div className="eyebrow">Lancara Founding Pilot application</div>
     <h1>Tell us how your agency currently finds new clients.</h1>
     <p className="lead">This helps us determine whether the pilot can produce useful opportunities for your team.</p>
     <p className="form-note"><strong>Takes approximately 5 minutes.</strong> No payment details required.</p>
