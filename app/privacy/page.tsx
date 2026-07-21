@@ -9,7 +9,7 @@ export default function Privacy() {
     <h2>Data controller and operator</h2>
     <p>{siteConfig.operator}, operating from {siteConfig.jurisdiction}, is the controller and operator responsible for information collected through the {siteConfig.program}. The primary contact is {siteConfig.operatorContact}. Questions about this notice can be sent to <a className="inline-link" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.</p>
     <h2>Information we collect and why</h2>
-    <p>We collect the information submitted in the founding-pilot application, including contact details, agency information, acquisition workflow, research challenges, and pilot-readiness answers. We use it to evaluate fit, contact applicants, operate and improve the pilot, prevent abuse, and maintain necessary application records. Applications may be reviewed manually.</p>
+    <p>We collect the information submitted in the calibration application, including contact details, agency information, recruitment specialization, typical employer profile, credible role capabilities, acquisition methods, and commercial and weekly-feedback readiness. We use it to evaluate fit, contact applicants, configure and improve the service, prevent abuse, and maintain necessary application records. Applications are reviewed manually.</p>
     <h2>Use and sharing</h2>
     <p>We do not sell applicant data. We may use service providers for hosting, database storage, email delivery, security, and privacy-conscious analytics. These providers process information only as needed to support the pilot. Sensitive form answers are not intentionally sent to third-party analytics providers.</p>
     <h2>Retention</h2>
