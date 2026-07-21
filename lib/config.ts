@@ -1,12 +1,15 @@
 export const siteConfig = {
-  name: "LANCARA",
-  logoText: "LANCARA",
+  company: "Lancara",
+  name: "Lancara for Recruitment",
+  logoText: "Lancara for Recruitment",
+  program: "Lancara Founding Pilot",
   headline: "Know which companies to approach this week—and why now.",
   email: "daffaulayafaros@gmail.com",
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL || "",
   pilotCapacity: "5",
-  operator: "LANCARA",
+  operator: "Lancara",
   operatorContact: "Daffa Arazaan",
   jurisdiction: "Indonesia",
+  linkedIn: "https://www.linkedin.com/in/daffa-arazaan",
   accent: "#155e75",
 };

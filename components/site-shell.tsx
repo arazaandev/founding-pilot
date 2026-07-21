@@ -24,9 +24,9 @@ export function Footer() {
       <div><Link className="brand footer-brand" href="/"><span className="brand-mark">LA</span><span>{siteConfig.name}</span></Link><h2>Research less.<br/><em>Approach better.</em></h2></div>
       <div className="footer-nav">
         <div><span>EXPLORE</span><Link href="/#how">How it works</Link><Link href="/sample-opportunity">Sample opportunity</Link><Link href="/apply">Apply</Link></div>
-        <div><span>CONNECT</span><a href={`mailto:${siteConfig.email}`}>Email</a><Link href="/privacy">Privacy</Link></div>
+        <div><span>CONNECT</span><a href={`mailto:${siteConfig.email}`}>Email</a><a href={siteConfig.linkedIn} target="_blank" rel="noreferrer">LinkedIn</a><Link href="/privacy">Privacy</Link></div>
       </div>
     </div>
-    <div className="container footer-bottom"><p>© {new Date().getFullYear()} {siteConfig.name}</p><p>Fictional companies are used in demonstrations.</p></div>
+    <div className="container footer-bottom"><p>© {new Date().getFullYear()} {siteConfig.company}</p><p>Fictional companies are used in demonstrations.</p></div>
   </footer>;
 }
