@@ -10,4 +10,4 @@ export const metadata:Metadata={
   openGraph:{title:siteConfig.name,description:"Know which companies to approach this week—and why now.",type:"website",images:[{url:"/og.png",width:1728,height:902,alt:"Lancara for Recruitment opportunity intelligence"}]},
   twitter:{card:"summary_large_image",title:siteConfig.name,description:"Know which companies to approach this week—and why now.",images:["/og.png"]}
 };
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en" data-scroll-behavior="smooth"><body>{children}</body></html>}
