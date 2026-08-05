@@ -231,7 +231,7 @@ Never claim that a test, deployment, migration, or production verification succe
 
 ## n8n and MCP rules
 
-n8n may be connected to Cursor during Phase 1.5 in a development sandbox.
+n8n may be connected to Codex during Phase 1.5 in a development sandbox.
 
 Before creating production workflows:
 

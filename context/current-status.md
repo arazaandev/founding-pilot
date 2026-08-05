@@ -106,7 +106,7 @@ Customer ICP
 
 Industry-specific rules should live inside configurable playbooks.
 
-n8n and Cursor may be connected during the current phase for sandbox development. The first real workflow should be built only after initial customer interviews clarify the research requirements.
+n8n and Codex may be connected during the current phase for sandbox development. The first real workflow should be built only after initial customer interviews clarify the research requirements.
 
 ## Current phase name
 

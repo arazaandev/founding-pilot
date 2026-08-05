@@ -110,7 +110,7 @@ Recruitment remains one possible playbook and validation vertical.
 
 **Reason:** Conversations, usage, payment, and repeatability provide different levels of evidence.
 
-## 16. Connect n8n and Cursor gradually
+## 16. Connect n8n and Codex gradually
 
 **Decision:** Set up the development connection during Phase 1.5, build Workflow V0 after discovery interviews, and productionize after payment.
 

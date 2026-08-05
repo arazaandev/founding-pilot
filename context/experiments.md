@@ -172,7 +172,7 @@ This document records tests, assumptions, evidence, outcomes, and next decisions
 
 **Timing:**
 
-- Connect n8n MCP to Cursor during Phase 1.5
+- Connect n8n MCP to Codex during Phase 1.5
 - Build Workflow V0 after discovery calls
 - Refine after real brief feedback
 - Productionize after payment

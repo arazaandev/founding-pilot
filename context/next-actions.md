@@ -112,7 +112,7 @@ Compare recruitment and software or IT services using pain severity, frequency, 
 
 ### Now
 
-- Connect n8n MCP to Cursor in a development sandbox
+- Connect n8n MCP to Codex in a development sandbox
 - Define workflow naming, versioning, secrets, and Git export rules
 - Do not encode unvalidated scoring or qualification logic
 
