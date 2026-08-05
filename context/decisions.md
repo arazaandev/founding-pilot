@@ -130,3 +130,11 @@ Recruitment remains one possible playbook and validation vertical.
 - Multi-industry customer interfaces
 
 **Reason:** These features do not resolve the present commercial-risk question.
+
+## 18. Use a vertical-neutral acquisition site with compatible application data
+
+**Decision:** Present Lancara as opportunity intelligence for B2B service businesses, show specialist recruitment and software/IT services as current validation tracks, and generalize the application through an additive database migration that preserves recruitment-era columns and records.
+
+**Reason:** The public message, sample deliverable, and application must agree with the current two-vertical Gate A experiment without implying that multiple mature products or automated monitoring already exist. Additive fields and temporary dual writes provide a recoverable deployment sequence for the live funnel.
+
+**Implementation note:** The local implementation is verified on `website-vertical-neutral-upgrade`; database integration and preview deployment remain pending before production promotion.
