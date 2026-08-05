@@ -1,30 +1,133 @@
-import { Nav, Footer } from "@/components/site-shell";
+import { OpportunityBriefPreview } from "@/components/opportunity-brief-preview";
+import { Footer, Nav } from "@/components/site-shell";
 
-const scoreRows = [["ICP fit","92"],["Recruitment demand","86"],["Timing","77"],["Total","84"]];
-const vacancyRows = [["Senior Data Engineer","Jakarta","6 July 2026","30+ days","Persistent"],["Analytics Engineer","Jakarta","10 July 2026","12 days","New"],["ML Engineer","Remote, Indonesia","10 July 2026","12 days","Specialist"]];
-const sources = [
-  {type:"Official careers page",detail:"Vacancy titles and locations",first:"6 July 2026",checked:"20 July 2026"},
-  {type:"Public applicant-tracking page",detail:"Posting status and role descriptions",first:"10 July 2026",checked:"20 July 2026"},
-  {type:"Company announcement",detail:"Product-expansion context",first:"16 July 2026",checked:"20 July 2026"},
+const evidence = [
+  {
+    type: "Company announcement",
+    observed: "NusantaraPay announced expansion of its merchant services into two additional Indonesian cities.",
+    observedDate: "18 July 2026",
+    checkedDate: "2 August 2026",
+  },
+  {
+    type: "Leadership announcement",
+    observed: "A new Head of Data was appointed with a stated remit covering data foundations and analytics delivery.",
+    observedDate: "29 July 2026",
+    checkedDate: "2 August 2026",
+  },
+  {
+    type: "Official careers page",
+    observed: "Four open roles referenced data platform, cloud infrastructure, governance, and analytics engineering work.",
+    observedDate: "31 July 2026",
+    checkedDate: "2 August 2026",
+  },
 ];
+
 const stakeholders = [
-  {order:1,role:"Head of Talent Acquisition",reason:"Owns recruitment capacity and agency relationships.",objective:"Understand internal recruitment capacity and external-agency usage."},
-  {order:2,role:"Data Engineering Director",reason:"Closest to the specialist roles and likely urgency.",objective:"Validate role requirements, talent scarcity, and urgency."},
-  {order:3,role:"VP Engineering",reason:"Can connect hiring delays to delivery priorities.",objective:"Understand whether open roles are affecting delivery timelines."},
-  {order:4,role:"Head of People",reason:"May sponsor workforce planning and approvals.",objective:"Explore workforce-planning priorities and the approval process."},
+  {
+    order: "01",
+    role: "Head of Data",
+    reason: "Likely to understand the platform priorities, internal capability, and delivery constraints.",
+    objective: "Clarify ownership, sequencing, and whether external delivery support is relevant.",
+  },
+  {
+    order: "02",
+    role: "Chief Technology Officer",
+    reason: "May own technology investment, architecture risk, and partner decisions.",
+    objective: "Understand the strategic importance of modernization and the partner-selection process.",
+  },
+  {
+    order: "03",
+    role: "VP Merchant Operations",
+    reason: "Can connect expansion requirements to reporting, reliability, and operational-data needs.",
+    objective: "Verify which operational outcomes matter and where current systems create friction.",
+  },
+];
+
+const unknowns = [
+  ["Internal capacity", "The new roles may be sufficient to deliver the work without external support."],
+  ["Incumbent partner", "An existing consultancy or cloud partner may already own the modernization programme."],
+  ["Priority and budget", "The public evidence does not confirm an approved project, timeline, or buying process."],
 ];
 
 export default function Sample() {
-  return <><Nav/><main>
-    <section><div className="container"><div className="eyebrow">Fictional demonstration</div><h1>NusantaraPay opportunity brief</h1><p className="lead">Financial technology · Indonesia · 501–1,000 employees</p><div className="grid3"><div className="card"><div className="metric">84/100</div><b>Opportunity score</b></div><div className="card"><div className="metric">Contact now</div><b>Recommendation</b></div><div className="card"><div className="metric">High</div><b>Evidence confidence</b></div></div></div></section>
-    <section className="tint"><div className="container"><div className="pattern-banner"><div><span className="tag">Pattern detected</span><h2>Specialist hiring bottleneck</h2><p>Several related specialist vacancies, including repeated or long-open positions.</p></div><div><span className="tag">Evidence confidence</span><strong>High</strong><p>Multiple fictional source types support the observed hiring pattern.</p></div></div><div className="signal-stack-detail"><h3>Signal stack</h3><div>{["Seven technology vacancies","Three related data roles","Two persistent postings","Recent product-expansion context","Strong agency sector and role-family match"].map(signal=><span key={signal}>✓ {signal}</span>)}</div></div></div></section>
-    <section><div className="container grid2"><div><h2>Why it fits</h2><ul className="list"><li>Geographic match: Indonesia</li><li>Industry match: financial technology</li><li>Role-family match: data engineering</li><li>Commercial fit: multiple specialist vacancies</li><li>Company-size fit: mid-market enterprise</li></ul></div><div className="card"><h3>Opportunity hypothesis</h3><p>NusantaraPay may need external recruitment support for its data-engineering expansion because multiple related specialist positions are being recruited simultaneously and some have remained visible for an extended period.</p><div className="warning">This is an inference based on fictional public evidence. It is not confirmed internal information.</div></div></div></section>
-    <section><div className="container grid2 score-section"><div><p className="eyebrow"><span/> Explainable scoring</p><h2>Why the score is 84</h2><p className="lead">Each commercial dimension is scored separately so an agency can inspect the reasoning—not just the recommendation. Evidence confidence is assessed separately and does not add points to this score.</p><div className="score-caveat"><strong>What reduced the score</strong><p>Expansion evidence is indirect, and no external-agency usage has been confirmed.</p></div></div><div className="card"><table><thead><tr><th>Dimension</th><th>Score</th></tr></thead><tbody>{scoreRows.map(([dimension,score])=><tr className={dimension==="Total"?"total-row":""} key={dimension}><td>{dimension}</td><td><strong>{score}</strong></td></tr>)}</tbody></table></div></div></section>
-    <section className="tint"><div className="container"><p className="eyebrow"><span/> Vacancy evidence</p><h2>Jobs behind the signal</h2><p className="lead">The brief keeps the underlying roles visible so persistence, timing, and specialization can be checked.</p><div className="table-scroll"><table><thead><tr><th>Role</th><th>Location</th><th>First observed</th><th>Age</th><th>Signal</th></tr></thead><tbody>{vacancyRows.map(row=><tr key={row[0]}>{row.map(cell=><td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div></div></section>
-    <section><div className="container"><p className="eyebrow"><span/> Evidence provenance</p><h2>What a source record looks like</h2><p className="lead">These disabled records demonstrate the format. They do not link to real companies or sources.</p><div className="source-grid">{sources.map(source=><article className="source-card" aria-disabled="true" key={source.type}><span className="tag">Fictional demonstration source</span><h3>{source.type}</h3><p>{source.detail}</p><dl><div><dt>First detected</dt><dd>{source.first}</dd></div><div><dt>Last checked</dt><dd>{source.checked}</dd></div></dl><button disabled>Source unavailable in demo</button></article>)}</div></div></section>
-    <section className="tint"><div className="container grid2"><div><p className="eyebrow"><span/> Agency relevance</p><h2>Best matching proof</h2><p className="lead">The brief connects the opportunity to experience the agency can credibly reference.</p></div><div className="card proof-card"><span className="tag">Fictional demonstration data</span><h3>Financial-services client</h3><p>Three senior data placements · Similar team expansion · Indonesia</p><b>Why it matches:</b><p>The agency has relevant sector, geography, seniority, and role-family evidence for a useful first conversation.</p></div></div></section>
-    <section><div className="container"><p className="eyebrow"><span/> Recommended contact order</p><h2>Stakeholder map</h2><div className="stakeholder-intro"><strong>Start with the Head of Talent Acquisition.</strong><p>This role is the most suitable entry point because it can clarify both internal recruiting capacity and whether specialist external agencies are already used.</p></div><div className="grid2">{stakeholders.map(person=><article className="card stakeholder" key={person.role}><span className="contact-order">{person.order.toString().padStart(2,"0")}</span><h3>{person.role}</h3><p>{person.reason}</p><b>Conversation objective</b><p>{person.objective}</p></article>)}</div></div></section>
-    <section className="tint"><div className="container uncertainty-grid"><article className="card"><span className="tag">Why Lancara may be wrong</span><h3>The hypothesis has limits.</h3><p>The company may already have sufficient internal recruitment capacity, may use an incumbent agency, or may be intentionally hiring slowly.</p></article><article className="card"><span className="tag">What to verify first</span><h3>Start with the unknown.</h3><p>Confirm whether the positions are actively prioritized and whether specialist external support is currently considered.</p></article></div></section>
-    <section><div className="container grid2"><div><p className="eyebrow"><span/> Evidence-led personalization</p><h2>Recommended next action</h2><p className="lead">Ask a careful qualification question without claiming the company is struggling or currently wants an agency.</p></div><div className="card outreach-card"><span className="tag">LinkedIn draft</span><p>Hi [Name]—I noticed NusantaraPay added several data roles recently, including two data-engineering positions that have remained open for more than a month. We recently supported a financial-services team hiring for similar specialist roles. Are these positions fully covered by your internal team, or would additional specialist recruitment capacity be useful?</p><div className="actions"><button disabled>Approve</button><button disabled>Edit</button><button disabled>Reject</button><button disabled>Postpone</button></div><p className="muted">Pilot users will use these decisions to improve future qualification.</p></div></div></section>
-  </main><Footer/></>;
+  return (
+    <>
+      <Nav />
+      <main>
+        <section className="sample-hero">
+          <div className="container">
+            <span className="sample-label">Fictional demonstration · no real company or source data</span>
+            <h1>NusantaraPay opportunity brief</h1>
+            <p className="lead">Prepared for AwanData, a fictional Indonesian data and cloud consultancy · Target account: financial technology · Indonesia</p>
+            <div className="sample-summary">
+              <article><span>Opportunity pattern</span><strong>Data-platform modernization window</strong><p>Expansion, data leadership, and related delivery roles appear close in time.</p></article>
+              <article><span>Commercial potential</span><strong>Promising</strong><p>Relevant multi-team need and strong customer capability match, subject to verification.</p></article>
+              <article><span>Evidence confidence</span><strong>Moderate</strong><p>Three recent source types support the pattern; ownership and partner status are unknown.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section container sample-section">
+          <div className="sample-copy"><p className="eyebrow"><span /> Target account summary</p><h2>A plausible change window, not confirmed buying intent.</h2><p>NusantaraPay is presented as an expanding Indonesian financial-technology company. The fictional evidence suggests related changes in commercial reach, data leadership, and technical delivery capacity.</p></div>
+          <OpportunityBriefPreview />
+        </section>
+
+        <section className="section tint">
+          <div className="container">
+            <div className="sample-content-heading"><p className="eyebrow"><span /> Fact versus interpretation</p><h2>What was observed — and what Lancara inferred.</h2></div>
+            <div className="fact-interpretation">
+              <article className="fact-card"><span className="tag">Observed</span><h3>Three public changes appeared within two weeks.</h3><ul className="list"><li>Merchant-services expansion announcement</li><li>New Head of Data appointment</li><li>Data, cloud, governance, and analytics roles</li></ul><p>These are fictional observations shown in the format a real brief would use.</p></article>
+              <article className="interpretation-card"><span className="tag">Interpreted</span><h3>The changes may create a modernization window.</h3><p>The combination supports a hypothesis that NusantaraPay may be strengthening its data platform for expansion. It does not establish an approved project, external-service need, or buying intent.</p><b>Alternative explanation</b><p>The company may be building the capability internally or already working with an incumbent partner.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section container">
+          <div className="sample-content-heading"><p className="eyebrow"><span /> Customer-specific fit</p><h2>Why this account may fit AwanData.</h2><p className="lead">The same account could be irrelevant to another provider. Qualification reflects the fictional customer’s capabilities and proof.</p></div>
+          <div className="grid3">
+            <article className="card"><span className="tag">Capability</span><h3>Data-platform delivery</h3><p>AwanData can design cloud data foundations, analytics pipelines, and data-governance controls.</p></article>
+            <article className="card"><span className="tag">Comparable proof</span><h3>Regional payments case</h3><p>A fictional case study covers modernization for a regulated Indonesian payments business with similar data-volume challenges.</p></article>
+            <article className="card"><span className="tag">Commercial fit</span><h3>Cross-functional scope</h3><p>The apparent need may involve a meaningful project across technology, data, and merchant operations.</p></article>
+          </div>
+        </section>
+
+        <section className="section tint">
+          <div className="container">
+            <div className="sample-content-heading"><p className="eyebrow"><span /> Evidence timeline</p><h2>Dated observations with visible freshness.</h2><p className="lead">All entries below are fictional. In a customer brief, each item would remain linked to its source.</p></div>
+            <div className="timeline-evidence">
+              {evidence.map((item) => <article key={item.type}><div className="evidence-meta"><span>{item.type}</span><span>Observed {item.observedDate}</span><span>Last checked {item.checkedDate}</span></div><h3>{item.observed}</h3><p className="muted">Source unavailable in this fictional demonstration.</p></article>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="section container">
+          <div className="sample-content-heading"><p className="eyebrow"><span /> Separate assessments</p><h2>Commercial value and evidence quality answer different questions.</h2></div>
+          <div className="decision-grid">
+            <article><span className="tag">Commercial potential</span><strong className="metric-word">Promising</strong><p>The potential project may suit AwanData’s delivery capabilities, reference proof, geography, and preferred contract profile. The assessment is qualitative because the model is not customer validated.</p><b>What could reduce it</b><p>Small internal scope, an incumbent contract, or a procurement route inaccessible to AwanData.</p></article>
+            <article><span className="tag">Evidence confidence</span><strong className="metric-word">Moderate</strong><p>Three recent and related fictional source types support the change pattern. None confirms project ownership, urgency, budget, external-support need, or partner status.</p><b>Why it is not high</b><p>The most commercially important facts remain internal and require direct verification.</p></article>
+          </div>
+        </section>
+
+        <section className="section tint">
+          <div className="container">
+            <div className="sample-content-heading"><p className="eyebrow"><span /> Stakeholders</p><h2>Roles to understand, not personal contacts to harvest.</h2><p className="lead">No personal stakeholder data is used in this demonstration. Each role has a specific conversation objective.</p></div>
+            <div className="stakeholder-grid">{stakeholders.map((person) => <article key={person.role}><span>{person.order}</span><h3>{person.role}</h3><p>{person.reason}</p><b>Conversation objective</b><p>{person.objective}</p></article>)}</div>
+          </div>
+        </section>
+
+        <section className="section container">
+          <div className="sample-content-heading"><p className="eyebrow"><span /> Unknowns and disqualifiers</p><h2>Why the interpretation may be wrong.</h2></div>
+          <div className="unknown-grid">{unknowns.map(([title, copy]) => <article key={title}><span className="tag">Unknown</span><h3>{title}</h3><p className="muted">{copy}</p></article>)}</div>
+        </section>
+
+        <section className="section tint">
+          <div className="container grid2">
+            <article className="card"><span className="tag">Verify next</span><h2>Confirm ownership, priority, and partner status.</h2><ol className="list"><li>Who owns the data-platform roadmap?</li><li>Which outcomes are currently prioritized?</li><li>Is delivery planned internally, with an incumbent, or through a new partner?</li><li>What would disqualify an external consultancy?</li></ol></article>
+            <article className="card conversation-card"><span className="tag">Careful conversation angle</span><h2>Begin with a hypothesis, not a claim.</h2><p>“The combination of NusantaraPay’s merchant expansion, new data leadership, and related platform roles suggests that the data foundation may be evolving. AwanData has supported a similar regulated payments environment. Is platform delivery already fully covered internally or by an existing partner, or would an outside perspective be useful?”</p><div className="demo-controls" aria-label="Disabled demonstration review controls"><button disabled>Approve</button><button disabled>Edit</button><button disabled>Reject</button><button disabled>Postpone</button></div><p className="demo-note">Demonstration only. A human customer would review and decide the next action.</p></article>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
 }
