@@ -1,12 +1,18 @@
 # Lancara Next Actions
 
-Last updated: 5 August 2026
+Last updated: 7 August 2026
 
 ## Immediate objective
 
 Determine whether specialist recruitment agencies or software and IT service firms provide the stronger initial market for Lancara.
 
 Do not begin another broad product-development phase before obtaining behavioural evidence.
+
+## Status note — 7 August 2026
+
+The local vertical-neutral website now includes a guided fictional opportunity-brief walkthrough near the homepage promise. This improves the explanation of the current manual deliverable but does not change the validation gate or displace founder-led discovery.
+
+The immediate commercial priority remains comparable outreach and qualified discovery conversations. Before production promotion, continue the existing migration, integration, authenticated-record, preview-deployment, and production-checklist verification; include this walkthrough in the preview review.
 
 ## Priority 1 — Complete Founder Discovery Operations
 

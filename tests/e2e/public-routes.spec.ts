@@ -47,9 +47,54 @@ test("sample brief keeps commercial potential separate and review controls disab
   for (const label of ["Approve", "Edit", "Reject", "Postpone"]) await expect(page.getByRole("button", { name: label })).toBeDisabled();
 });
 
+test("homepage walkthrough moves from evidence to interpretation and a human-reviewed next step", async ({ page }) => {
+  await page.goto("/");
+
+  const section = page.getByRole("region", { name: "From public evidence to a commercial next step" });
+  await expect(section).toBeVisible();
+  await expect(section.getByText("Fictional demonstration", { exact: true })).toBeVisible();
+  await expect(section.getByText(/No real company, customer, or source data/)).toBeVisible();
+  await expect(section.getByText(/not a live autonomous monitoring dashboard/)).toBeVisible();
+
+  const evidenceTab = section.getByRole("tab", { name: /Evidence observed/ });
+  const interpretationTab = section.getByRole("tab", { name: /Lancara’s interpretation/ });
+  const actionTab = section.getByRole("tab", { name: /Recommended next step/ });
+  const panel = section.getByRole("tabpanel");
+
+  await expect(evidenceTab).toHaveAttribute("aria-selected", "true");
+  await expect(panel).toContainText("Three related changes appeared within two weeks");
+  await expect(panel).toContainText("Last checked 2 August 2026");
+
+  await evidenceTab.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(interpretationTab).toBeFocused();
+  await expect(interpretationTab).toHaveAttribute("aria-selected", "true");
+  await expect(panel).toContainText("Data-platform modernization window");
+  await expect(panel).toContainText("Commercial potential");
+  await expect(panel).toContainText("Evidence confidence");
+  await expect(panel).toContainText("Why Lancara may be wrong");
+
+  await page.keyboard.press("End");
+  await expect(actionTab).toBeFocused();
+  await expect(actionTab).toHaveAttribute("aria-selected", "true");
+  await expect(panel).toContainText("Verify before approach");
+  await expect(panel).toContainText("Head of Data");
+  await expect(panel).toContainText("Conversation objective");
+  await expect(panel).toContainText("Human-controlled recommendation");
+
+  await page.keyboard.press("Home");
+  await expect(evidenceTab).toBeFocused();
+  await expect(evidenceTab).toHaveAttribute("aria-selected", "true");
+
+  await expect(section.getByRole("link", { name: /Explore the complete fictional brief/ })).toHaveAttribute("href", "/sample-opportunity");
+  await expect(section.getByRole("link", { name: /Request a free calibration/ })).toHaveAttribute("href", "/apply");
+});
+
 test("reduced motion leaves homepage content visible", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
+  await expect(page.getByRole("heading", { name: "From public evidence to a commercial next step" })).toBeVisible();
+  await expect(page.getByRole("tabpanel")).toContainText("Three related changes appeared within two weeks");
   await expect(page.getByRole("heading", { name: /Prospecting is rarely a list problem/ })).toBeVisible();
   await expect(page.getByRole("heading", { name: /Two markets under active comparison/ })).toBeVisible();
 });
