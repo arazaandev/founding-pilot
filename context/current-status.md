@@ -1,6 +1,6 @@
 # Lancara Current Status
 
-Last updated: 7 August 2026
+Last updated: 8 August 2026
 
 ## Company
 
@@ -135,3 +135,16 @@ Implemented and locally verified on 7 August 2026 on branch `website-vertical-ne
 - Keyboard-operable stage controls, reduced-motion behavior, focused browser coverage, and responsive layouts at 390px, 768px, and 1440px were verified locally.
 
 This is a visual explanation of the current manual deliverable. It does not add live monitoring, a customer dashboard, automation, deployment, or evidence of customer demand.
+
+## Public offer-clarity update — local implementation
+
+Implemented and locally verified on 8 August 2026:
+
+- The homepage now frames Lancara's output as a defensible, human-reviewed account decision: contact, research further, monitor, postpone, or exclude.
+- The public brief description now covers ten inspectable elements: account, fit, evidence, interpretation, timing, confidence, uncertainty, stakeholders, action, and preparation.
+- The free calibration now distinguishes customer inputs collected after selection, Lancara's delivery, and the decisions the customer can make before any paid commitment.
+- The four-week founding pilot retains its existing Rp4 million price, weekly research and brief volumes, feedback cadence, and two-customer capacity limit while stating its repeated-use test and exclusions.
+- Current fit, exclusions, staged intake, human review, signals-not-proof language, and site metadata now align with the revised offer.
+- The application schema, storage, routes, fictional walkthrough, and commercial terms were not changed.
+
+This update improves the offer hypothesis presented during Gate A. It does not establish demand, recurring usefulness, payment validation, repeatability, savings, buying intent, or guaranteed outcomes. No deployment was performed.
