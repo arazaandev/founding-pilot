@@ -1,6 +1,6 @@
 # Lancara Current Status
 
-Last updated: 5 August 2026
+Last updated: 7 August 2026
 
 ## Company
 
@@ -124,3 +124,14 @@ The purpose of this phase is to establish a repeatable manual process for:
 - Delivery-economics tracking
 
 Major customer-facing software development should wait until real briefs have been reviewed and a customer has demonstrated willingness to pay.
+
+## Homepage product-evidence walkthrough — local implementation
+
+Implemented and locally verified on 7 August 2026 on branch `website-vertical-neutral-upgrade`:
+
+- A three-stage homepage walkthrough now shows how dated public evidence becomes interpretation and a human-reviewed next step.
+- The walkthrough reuses the fictional NusantaraPay/AwanData sample and keeps commercial potential separate from evidence confidence.
+- Fictional-data, current-deliverable, and non-autonomous-dashboard disclosures are visible beside the walkthrough.
+- Keyboard-operable stage controls, reduced-motion behavior, focused browser coverage, and responsive layouts at 390px, 768px, and 1440px were verified locally.
+
+This is a visual explanation of the current manual deliverable. It does not add live monitoring, a customer dashboard, automation, deployment, or evidence of customer demand.

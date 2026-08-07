@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { OpportunityBriefPreview } from "@/components/opportunity-brief-preview";
+import { OpportunityWalkthrough } from "@/components/opportunity-walkthrough";
 import { Reveal } from "@/components/reveal";
 import { Footer, Nav } from "@/components/site-shell";
 import { siteConfig } from "@/lib/config";
@@ -64,6 +65,8 @@ export default function Home() {
           <div className="hero-brief reveal delay-1"><OpportunityBriefPreview linked /></div>
         </section>
 
+        <OpportunityWalkthrough />
+
         <section className="section problem-section" id="problem">
           <div className="container">
             <div className="section-heading reveal">
@@ -103,11 +106,6 @@ export default function Home() {
             <article className="reveal delay-1"><span className="track-code">02 / IT SERVICES</span><h3>Software and IT services</h3><p className="track-question">Which companies may have a timely need for the firm’s services?</p><div><b>Example evidence</b><p>Transformation initiatives, new leadership, expansion, technology changes, delivery requirements, and capability match.</p></div></article>
           </div>
           <p className="track-note">These are current validation tracks, not permanent limits on Lancara’s product.</p>
-        </section>
-
-        <section className="section container sample-section">
-          <div className="sample-copy reveal"><p className="eyebrow"><span /> Show the judgment</p><h2>See how one opportunity hypothesis is built.</h2><p>The fictional NusantaraPay brief shows a data-platform modernization scenario for a fictional Indonesian data and cloud consultancy.</p><Link className="button button-dark" href="/sample-opportunity">Explore the full sample <span aria-hidden="true">↗</span></Link></div>
-          <div className="reveal delay-1"><OpportunityBriefPreview linked /></div>
         </section>
 
         <section className="section evidence-standard" id="how-it-works">
