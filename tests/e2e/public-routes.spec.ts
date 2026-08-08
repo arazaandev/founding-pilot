@@ -90,11 +90,62 @@ test("homepage walkthrough moves from evidence to interpretation and a human-rev
   await expect(section.getByRole("link", { name: /Request a free calibration/ })).toHaveAttribute("href", "/apply");
 });
 
+test("homepage explains the revised offer and preserves its commercial boundaries", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /customer-specific account sets.*human-reviewed opportunity briefs/i);
+  await expect(page.getByRole("heading", { level: 1, name: /Know which companies deserve your attention/ })).toBeVisible();
+  await expect(page.locator(".hero-lede")).toContainText("scattered company evidence");
+  await expect(page.locator(".hero-actions").getByRole("link", { name: /Request a free opportunity calibration/ })).toHaveAttribute("href", "/apply");
+  await expect(page.locator(".hero-actions").getByRole("link", { name: /Explore a sample brief/ })).toHaveAttribute("href", "/sample-opportunity");
+
+  const problem = page.locator("#problem");
+  await expect(problem.getByRole("heading", { name: /defensible account decision/ })).toBeVisible();
+  for (const decision of ["Contact", "Research further", "Monitor", "Postpone", "Exclude"]) {
+    await expect(problem.getByRole("listitem").filter({ hasText: decision })).toBeVisible();
+  }
+
+  const briefSection = page.getByRole("heading", { name: /Ten elements make the account decision/ }).locator("xpath=ancestor::section");
+  await expect(briefSection.locator(".brief-element")).toHaveCount(10);
+  for (const element of ["Account", "Fit", "Evidence", "Interpretation", "Timing", "Confidence", "Uncertainty", "Stakeholders", "Action", "Preparation"]) {
+    await expect(briefSection.locator(".brief-element").getByText(element, { exact: true })).toBeVisible();
+  }
+
+  const fit = page.locator(".tracks-section");
+  await expect(fit.getByText("STRONG FIT", { exact: true })).toBeVisible();
+  await expect(fit.getByText("NOT CURRENTLY DESIGNED FOR", { exact: true })).toBeVisible();
+  await expect(fit.getByRole("heading", { name: "Specialist recruitment" })).toBeVisible();
+  await expect(fit.getByRole("heading", { name: "Software and IT services" })).toBeVisible();
+
+  const calibration = page.locator(".calibration-offer");
+  await expect(calibration).toContainText("What you provide");
+  await expect(calibration).toContainText("What Lancara delivers");
+  await expect(calibration).toContainText("What you can decide");
+  await expect(calibration).toContainText("30-minute configuration session");
+  await expect(calibration).toContainText("Three researched, human-reviewed opportunity briefs");
+  await expect(calibration).toContainText("five business days after complete onboarding");
+  await expect(calibration).toContainText("20-minute review session");
+  await expect(calibration).toContainText("No software purchase, workflow configuration, or paid commitment");
+  await expect(calibration.getByRole("link", { name: /Request calibration/ })).toHaveAttribute("href", "/apply");
+
+  const pilot = page.locator(".paid-offer");
+  await expect(pilot).toContainText("four-week paid test");
+  await expect(pilot).toContainText("Rp4 million");
+  await expect(pilot).toContainText("10–15 accounts researched weekly");
+  await expect(pilot).toContainText("5–8 complete human-reviewed briefs weekly");
+  await expect(pilot).toContainText("Maximum two simultaneous paid customers");
+  await expect(pilot).toContainText("No automated outreach, CRM sync, customer dashboard, contact-data waterfall, or guaranteed outcomes");
+
+  const faq = page.locator(".faq-section");
+  await expect(faq.getByText("What does my team need to provide?", { exact: true })).toBeVisible();
+  await expect(faq).toContainText("The initial application asks only for enough information to assess fit");
+});
+
 test("reduced motion leaves homepage content visible", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "From public evidence to a commercial next step" })).toBeVisible();
   await expect(page.getByRole("tabpanel")).toContainText("Three related changes appeared within two weeks");
-  await expect(page.getByRole("heading", { name: /Prospecting is rarely a list problem/ })).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Two markets under active comparison/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /defensible account decision/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Built for service firms that can act on the research/ })).toBeVisible();
 });

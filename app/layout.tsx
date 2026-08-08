@@ -3,15 +3,16 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/config";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteDescription =
+  "Short, customer-specific account sets and human-reviewed opportunity briefs covering evidence, fit, timing, uncertainty, stakeholders, and what to do next.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${siteConfig.name} | Opportunity intelligence for B2B service businesses`,
-  description:
-    "Human-reviewed opportunity briefs that connect public evidence, account signals, and your commercial strengths.",
+  description: siteDescription,
   openGraph: {
     title: `${siteConfig.name} — Research less. Approach better.`,
-    description: siteConfig.headline,
+    description: siteDescription,
     type: "website",
     images: [
       {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — Research less. Approach better.`,
-    description: siteConfig.headline,
+    description: siteDescription,
     images: ["/og.png"],
   },
 };
